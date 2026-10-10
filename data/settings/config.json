@@ -1,0 +1,7 @@
+{
+  "ai_enabled": false,
+  "ai_provider": "deepseek",
+  "ai_api_key": "",
+  "theme": "light",
+  "language": "zh_CN"
+}

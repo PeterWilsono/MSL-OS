@@ -1,0 +1,20 @@
+# 医药信息专员个人职业操作系统 - 依赖包
+
+# UI 框架 - nicegui (现代、轻量、支持桌面应用)
+nicegui>=1.4.0
+
+# 桌面应用支持
+pywebview>=4.4.0
+
+# HTTP 客户端 (用于 DeepSeek API)
+httpx>=0.25.0
+
+# 数据验证
+pydantic>=2.0.0
+
+# Markdown 处理
+markdown>=3.5.0
+
+# Excel 文件处理
+openpyxl>=3.1.0
+pandas>=2.0.0
