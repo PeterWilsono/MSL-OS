@@ -206,8 +206,8 @@ medicine-info-assistant/
 
 如有问题或建议,欢迎通过以下方式联系:
 
-- 提交 [Issue](https://github.com/your-username/medicine-info-assistant/issues)
-- 发送邮件至 your-email@example.com
+- 提交 [Issue](https://github.com/PeterWilsono/MSL-OS/issues)
+- 发送邮件至 1206244538@qq.com
 
 ---
 
