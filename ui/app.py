@@ -2857,9 +2857,8 @@ XX科室：慢病门诊拿了两瓶水
         product_id = self.kb_product_select.value
         
         try:
-            # 创建产品附件目录
-            from pathlib import Path
-            attachments_dir = Path('data/product_attachments') / product_id
+            # 创建产品附件目录（使用数据目录绝对路径，兼容打包后的环境）
+            attachments_dir = file_manager.data_dir / 'product_attachments' / product_id
             attachments_dir.mkdir(parents=True, exist_ok=True)
             
             # 保存文件

@@ -2,11 +2,20 @@
 医药信息专员个人职业操作系统
 程序入口
 """
+import os
 import sys
 from pathlib import Path
 
+# 打包后的环境：将工作目录切换到 exe 所在目录，
+# 保证数据、输出等相对路径与 exe 同级且可持久化保存
+if getattr(sys, 'frozen', False):
+    app_dir = Path(sys.executable).parent
+    os.chdir(app_dir)
+    project_root = app_dir
+else:
+    project_root = Path(__file__).parent
+
 # 确保项目根目录在路径中
-project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
 from core.file_manager import file_manager

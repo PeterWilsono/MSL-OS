@@ -373,14 +373,12 @@ class HospitalService:
     
     def sync_product_attachments(self, product_id: str) -> int:
         """同步产品附件目录中的文件到数据库"""
-        from pathlib import Path
-        
         product = self.get_product(product_id)
         if not product:
             return 0
-        
-        # 获取附件目录
-        attachments_dir = Path('data/product_attachments') / product_id
+
+        # 获取附件目录（使用数据目录绝对路径，兼容打包后的环境）
+        attachments_dir = self.fm.data_dir / 'product_attachments' / product_id
         if not attachments_dir.exists():
             return 0
         
@@ -418,10 +416,8 @@ class HospitalService:
     
     def sync_all_product_attachments(self) -> Dict[str, int]:
         """同步所有产品的附件"""
-        from pathlib import Path
-        
         results = {}
-        attachments_base = Path('data/product_attachments')
+        attachments_base = self.fm.data_dir / 'product_attachments'
         
         if not attachments_base.exists():
             return results
@@ -447,10 +443,8 @@ class HospitalService:
     
     def list_orphan_attachment_dirs(self) -> List[Dict[str, Any]]:
         """列出没有对应产品的附件目录"""
-        from pathlib import Path
-        
         orphans = []
-        attachments_base = Path('data/product_attachments')
+        attachments_base = self.fm.data_dir / 'product_attachments'
         
         if not attachments_base.exists():
             return orphans

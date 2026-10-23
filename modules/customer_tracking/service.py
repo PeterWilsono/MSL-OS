@@ -20,7 +20,7 @@ class CustomerTrackingService:
     """客户追踪管理服务"""
     
     def __init__(self):
-        self.data_dir = Path("data/customer_tracking")
+        self.data_dir = file_manager.data_dir / "customer_tracking"
         self.data_dir.mkdir(parents=True, exist_ok=True)
         
         # 4张表格的数据文件
@@ -439,7 +439,7 @@ class CustomerTrackingService:
         customer_level: Optional[str] = None
     ) -> str:
         """导出Excel表格"""
-        output_dir = Path("outputs/customer_tracking")
+        output_dir = file_manager.output_dir / "customer_tracking"
         output_dir.mkdir(parents=True, exist_ok=True)
         
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
